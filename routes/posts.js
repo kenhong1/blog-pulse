@@ -55,14 +55,27 @@ router.post("/:id", (req, res) => {
   let id = parseInt(req.params.id); 
     db.comment
     .create({
-      name: req.body.name,
-      content:req.body.content,
-      postId: req.body.postId
-    })
+        name: req.body.name,
+        content:req.body.content,
+        postId: req.body.postId
+  })
     .then(() => {
-      res.redirect(`/posts/${id}`)
+    res.redirect(`/posts/${id}`)
     })
 })
+
+
+//post/comments - create a new comment (within it's own comment route) -- morning code review 
+// router.post("/", function(req, res){
+//   db.post.findById(parse(req.body.id))
+// }).then(function(post){
+//   post.createComment({
+//     name:req.body.name,
+//     content:req.body.content
+//   }).then(function(comment){
+//     res.redirect("/posts/" + post.id); 
+//   })
+// })
 
 
 

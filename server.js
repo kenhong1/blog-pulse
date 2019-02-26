@@ -4,9 +4,9 @@ const ejsLayouts = require("express-ejs-layouts");
 const app = express(); 
 
 
+app.use(express.static("static")); 
 app.set("view engine", "ejs"); 
 app.use(express.urlencoded({extended: false}))
-app.use(express.static("static")); 
 app.use(ejsLayouts); 
 
 
@@ -24,4 +24,6 @@ app.get("/", function(req, res){
 app.use("/authors", require("./routes/authors")); 
 app.use("/posts", require("./routes/posts")); 
 
-app.listen(3000); 
+app.listen(3000, function(){
+    console.log("3000")
+}); 

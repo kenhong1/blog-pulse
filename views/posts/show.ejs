@@ -1,11 +1,16 @@
 <h1> <%= post.title %> by <%= post.author.name %> </h1>
 
 
-<p> <%= post.content %> </p>
+
+<p> Description: <%= post.content %> </p>
+
+<a href = "/"> &larr; Back Home </a>
 
 <hr />
 
-<a href = "/"> &larr; Back Home </a>
+<h4> Leave A Comment</h4>
+
+
 
 <form action = "/posts/<%=post.id%>" method="POST">
 <input 
@@ -22,18 +27,20 @@
     rows ="10"
     placeholder = "comment"></textarea>
 
-<input type =  "submit" value = "comment!"> 
+<input type =  "submit" value = "comment"> 
 
 </form>
 
-<a href = "/"> &larr; Back Home </a> 
+<hr />
 
+
+<div>
 <% post.comments.forEach(function(comment){ %>
-    <div>
-        <%= comment.name %>
-        <%= comment.content %> 
-    </div>
+
+    <li><%= comment.name %> - "<%= comment.content %>"  </li>  
+
 <% }) %>
+</div>
 
 
 </form>
